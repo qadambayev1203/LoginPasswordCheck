@@ -1,0 +1,28 @@
+﻿@model LoginPassword.Models.MessageUser
+
+@{
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style=" margin-top: 0.32rem; font-size: 2rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">Message</h2>
+<div class="card" style="width: 18rem;">
+   
+    <div class="card-body">
+        <h1 class="card-title text-center" style=" margin-top: 0.32rem; font-size: 2.52rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">Message</h1>
+        <h2 class="card-subtitle mb-2 text-body-secondary text-center" style=" margin-top: 0.32rem; font-size: 1.9rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">Message information</h2>
+        <hr />
+        <p style="font-size:20px"><b>Id:</b>  @Model.Id</p>
+        <p style="font-size:20px"><b>Full Name:</b>  @Model.FullName</p>
+        <p style="font-size:20px"><b>Message:</b>  @Model.Message</p>
+        <p style="font-size:20px"><b>Status:</b>  @Model.Status</p>
+        <form asp-controller="Home" asp-action="Confirmation" method="post">
+            <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
+            <button type="submit" class="btn btn-success" style="width:100px">Tasdiqlash</button>
+            <a asp-controller="Home" asp-action="MessageRead" class="btn btn-primary">Back to List</a>
+        </form>
+            
+    </div>
+</div>
+
+

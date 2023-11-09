@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MessageUser>
+
+@{
+    ViewData["Title"] = "Message Read";
+}
+
+
+@{
+    ViewBag.Title = "Message";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style=" margin-top: 0.32rem; font-size: 2rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">Messages</h2>
+
+<table class="table table-info table-striped-columns">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Full Name
+        </th>
+        <th>
+            Message
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        if (item.Status == MessageUserEnum.Admin)
+        {
+            
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.FullName
+                </td>
+                <td>
+                    @item.Message
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    
+                    <a asp-controller="Home" asp-action="Confirmation" asp-route-Id="@item.Id" class="btn btn-primary">Tasdiqlash</a>
+                    <a asp-controller="Home" asp-action="MessageSADelete" asp-route-Id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>

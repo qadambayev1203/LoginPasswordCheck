@@ -1,0 +1,34 @@
+﻿@model LoginPassword.Models.LoginPasswordd
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style=" margin-top: 0.32rem; font-size: 2rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">Delete</h2>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h1 class="card-title text-center" style=" margin-top: 0.32rem; font-size: 2.52rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">User</h1>
+        <hr />
+        <p style="font-size:20px"><b>Id:</b>  @Model.Id</p>
+        <p style="font-size:20px"><b>Login:</b>  @Model.Login</p>
+        <p style="font-size:20px"><b>Password:</b>  @Model.Password</p>
+        <p style="font-size:20px"><b>Role:</b>  @Model.Role</p>
+        <form asp-controller="Home" asp-action="Delete" method="post">
+            <input type="hidden" name="modelId" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger" style="width:100px">Delete</button>
+            @{
+                if (Model.Role != LoginPasswordEnum.User)
+                {
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to</a>
+                }
+                else
+                {
+                    <a asp-controller="Home" asp-action="Userr" class="btn btn-primary">Back to</a>
+                }
+            }
+        </form>
+
+    </div>
+</div>
+

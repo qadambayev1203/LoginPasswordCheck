@@ -1,0 +1,23 @@
+﻿@model LoginPassword.Models.LoginPasswordd
+
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style=" margin-top: 0.32rem; font-size: 2rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">Detail</h2>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h1 class="card-title text-center" style=" margin-top: 0.32rem; font-size: 2.52rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">User</h1>
+        <h2 class="card-subtitle mb-2 text-body-secondary text-center" style=" margin-top: 0.32rem; font-size: 1.9rem; font-weight: 700; text-transform: capitalize; color: #05364d; ">User information</h2>
+        <hr />
+        <p style="font-size:20px"><b>Id:</b>  @Model.Id</p>
+        <p style="font-size:20px"><b>Login:</b>  @Model.Login</p>
+        <p style="font-size:20px"><b>Password:</b>  @Model.Password</p>
+        <p style="font-size:20px"><b>Role:</b>  @Model.Role</p>
+
+        <a asp-controller="Home" asp-action="Update" asp-route-Id="@Model.Id" class="btn btn-warning" style="width:100px">Update</a>
+        <a asp-controller="Home" asp-action="Message" class="btn btn-primary">Message</a>
+    </div>
+</div>
+
